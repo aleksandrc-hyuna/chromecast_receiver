@@ -1,0 +1,16 @@
+<svg width="140" height="141" viewBox="0 0 140 141" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>loading</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2314 -3926)">
+<g id="loading">
+<g id="loading">
+<use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#E91E63"/>
+<use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#FFFFFF"/>
+<use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#2B2B2B"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 46.6792 85.3584C 25.3171 85.3584 8 68.041 8 46.6792C 8 25.3171 25.3171 8 46.6792 8C 68.041 8 85.3584 25.3171 85.3584 46.6792L 93.3584 46.6792C 93.3584 20.8989 72.4592 0 46.6792 0C 20.8989 0 0 20.8989 0 46.6792C 0 72.4592 20.8989 93.3584 46.6792 93.3584L 46.6792 85.3584Z"/>
+</defs>
+</svg>
