@@ -14,25 +14,51 @@
  * limitations under the License.
 **/
 
+
 /* NOTE: this must be first statement in file to work on device */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/proximanova-regular.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 
 /* ------------------------------------------------- */
+
+
 /* Animations                                        */
+
+
 /* ------------------------------------------------- */
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes loading {
-  0% { margin-left: -100%; }
-  100% { margin-left: 100%; }
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 100%;
+  }
 }
 
+
 /* ------------------------------------------------- */
+
+
 /* Player                                            */
+
+
 /* ------------------------------------------------- */
 
 body {
@@ -42,7 +68,7 @@ body {
 .player {
   background: #0E1217;
   color: #f1f1f1;
-  font-family: 'Open Sans',sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
   position: absolute;
   left: 0;
@@ -57,13 +83,49 @@ body {
   background-repeat: no-repeat;
   background-position: bottom;
   position: absolute;
-  bottom: 50%;
+  top: 33%;
   left: 50%;
   background-image: url("../images/logo.svg");
-  margin-bottom: -96px;
-  margin-left: -96px;
-  width: 192px;
-  height: 192px;
+  margin-bottom: -67px;
+  margin-left: -300px;
+  width: 600px;
+  height: 134px;
+}
+
+.player .spinner {
+  display: none;
+  -webkit-animation: spin 10s infinite linear;
+  height: 94px;
+  width: 94px;
+  display: block;
+  position: absolute;
+  background-image: url("../images/spinner.svg");
+  bottom: 27%;
+  left: 50%;
+  margin-left: -46px;
+}
+
+.player .ready icon {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-right: 16px;
+  height: 27px;
+  width: 33px;
+  background-image: url("../images/ready.svg");
+  background-repeat: no-repeat;
+}
+
+.player .ready {
+  display: none;
+  width: 800px;
+  margin: 0 auto;
+  height: 94px;
+  font-size: 48px;
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 .player .placeholder-image {
@@ -78,7 +140,8 @@ body {
   top: 0;
 }
 
-.player img, .player video {
+.player img,
+.player video {
   display: none;
   position: absolute;
   width: 100%;
@@ -174,18 +237,13 @@ body {
   background-position: bottom right;
   background-repeat: no-repeat;
   margin-bottom: 54px;
-  background-image: url("../images/watermark.png");
+  background-image: url("../images/watermark.svg");
 }
 
 .player .gradient {
   display: none;
   opacity: 0.9;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1.0),
-    rgba(0, 0, 0, 0.0) 72%,
-    rgba(0, 0, 0, 0.0) 100%
-  );
+  background: linear-gradient( to top, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0) 72%, rgba(0, 0, 0, 0.0) 100%);
 }
 
 .player .progressBar {
@@ -193,10 +251,12 @@ body {
 }
 
 .player .controls-progress {
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 8px;
+  background-color: #424242;
+  height: 3px;
   margin-top: 11px;
-  margin-bottom: 11px;
+  margin-bottom: 0;
+  margin-left: 100px;
+  margin-right: 100px;
   overflow: hidden;
   position: relative;
 }
@@ -217,9 +277,23 @@ body {
 
 .player .controls-cur-time,
 .player .controls-total-time {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 16px;
+  color: #fff;
+  font-family: 'Proxima Nova', 'Roboto', 'sans-serif';
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 400;
+}
+
+.player .controls-spinner {
+  -webkit-animation: spin 1s infinite linear;
+  background: url('../images/red-spinner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 73px;
+  width: 73px;
+  float: left;
+  position: absolute;
+  top: -25px;
 }
 
 .player .controls-cur-time {
@@ -295,15 +369,157 @@ body {
   font-weight: bold;
 }
 
+
 /* ------------------------------------------------- */
+
+
+/* Player - Launching                        */
+
+
+/* ------------------------------------------------- */
+
+.player[state="launching"] .overlay {
+  display: block;
+}
+
+.player[state="launching"] .logo {
+  display: block;
+}
+
+.player[state="launching"] .controls,
+.player[state="launching"] .media-info,
+.player[state="launching"] .media-artwork {
+  display: none;
+}
+
+.player[state="launching"] .spinner {
+  -webkit-animation: spin 1s infinite linear;
+  display: block;
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Player - Loading                          */
+
+
+/* ------------------------------------------------- */
+
+.player[state="loading"] .overlay,
+.player[state="loading"] .controls-total-time,
+.player[state="loading"] .controls-spinner,
+.player[state="loading"] .controls {
+  display: block;
+}
+
+.player[state="loading"] .controls-cur-time,
+.player[state="loading"] .controls-progress-thumb,
+.player[state="loading"] .spinner,
+.player[state="loading"] .watermark,
+.player[state="loading"] .controls-play-pause {
+  display: none;
+}
+
+.player[state="loading"] .controls-progress-inner {
+  width: 0% !important;
+  /* -webkit-animation: loading 2s infinite linear; */
+}
+
+/* ------------------------------------------------- */
+
+
+/* Player - Playing                          */
+
+
+/* ------------------------------------------------- */
+
+.player[state="playing"] .overlay,
+.player[state="playing"] .gradient,
+.player[state="playing"] .watermark {
+  display: block;
+  visibility: hidden;
+}
+
+.player[state="playing"].seeking .overlay,
+.player[state="playing"].seeking .gradient {
+  display: block;
+  visibility: visible;
+}
+
+.player[state="playing"].seeking .media-info {
+  display: none;
+}
+
+.player[state="playing"].seeking .controls {
+  display: block;
+}
+
+.player[state="playing"] .controls-play-pause {
+  background-image: url("../images/buffering.png");
+  -webkit-animation: spin 1s infinite linear;
+}
+
+.player[state="playing"]:not(.seeking) .controls-play-pause {
+  display: none;
+}
+
+.player[state="playing"]:not(.seeking) .controls-cur-time {
+  margin-left: 0;
+}
+
+.player[state="playing"][live="true"] .controls-cur-time,
+.player[state="playing"][live="true"] .controls-total-time,
+.player[state="playing"][live="true"] .controls-progress {
+  display: none !important;
+}
+
+.player[state="playing"] video {
+  display: block;
+}
+
+.player[state="playing"] .spinner {
+  display: none;
+}
+
+.player[state="playing"][preview-mode="true"] .preview-mode-info {
+  display: flex;
+}
+
+.player[state="playing"][preview-mode="true"] .overlay,
+.player[state="playing"][preview-mode="true"] .gradient,
+.player[state="playing"][preview-mode="true"] .watermark {
+  display: block;
+  visibility: visible;
+}
+
+.player[state="playing"][preview-mode="true"] .media-info {
+  display: none;
+}
+
+.player[state="playing"][preview-mode="true"].seeking .preview-mode-info {
+  display: flex;
+}
+
+
+/* ------------------------------------------------- */
+
+
 /* Player - Video                                    */
-/* ------------------------------------------------- */
+
 
 /* ------------------------------------------------- */
+
+
+/* ------------------------------------------------- */
+
+
 /* Player - Video - Launching                        */
+
+
 /* ------------------------------------------------- */
 
-.player[type="video"][state="launching"] .overlay {
+/* .player[type="video"][state="launching"] .overlay {
   display: block;
 }
 
@@ -318,22 +534,19 @@ body {
 }
 
 .player[type="video"][state="launching"] .spinner {
-  -webkit-animation: spin 1s infinite linear;
-  height: 36px;
-  width: 32px;
   display: block;
-  position: absolute;
-  background-image: url("../images/buffering.png");
-  bottom: 64px;
-  left: 50%;
-  margin-left: 32px / -2;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Video - Loading                          */
+
+
 /* ------------------------------------------------- */
 
-.player[type="video"][state="loading"] .overlay,
+/* .player[type="video"][state="loading"] .overlay,
 .player[type="video"][state="loading"] .controls,
 .player[type="video"][state="loading"] .watermark {
   display: block;
@@ -349,10 +562,15 @@ body {
 .player[type="video"][state="loading"] .controls-progress-inner {
   width: 90% !important;
   -webkit-animation: loading 2s infinite linear;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Video - Buffering                        */
+
+
 /* ------------------------------------------------- */
 
 .player[type="video"][state="buffering"] .overlay,
@@ -400,8 +618,13 @@ body {
   display: flex;
 }
 
+
 /* ------------------------------------------------- */
+
+
 /* Player - Video - Paused                           */
+
+
 /* ------------------------------------------------- */
 
 .player[type="video"][state="paused"] .overlay,
@@ -454,10 +677,15 @@ body {
   -webkit-transition: opacity 1s linear 5s;
 }
 
-/* ------------------------------------------------- */
-/* Player - Video - Playing                          */
+
 /* ------------------------------------------------- */
 
+
+/* Player - Video - Playing                          */
+
+
+/* ------------------------------------------------- */
+/* 
 .player[type="video"][state="playing"] .overlay,
 .player[type="video"][state="playing"] .gradient,
 .player[type="video"][state="playing"] .watermark {
@@ -519,12 +747,17 @@ body {
 
 .player[type="video"][state="playing"][preview-mode="true"].seeking .preview-mode-info {
   display: flex;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Audio                                    */
-/* ------------------------------------------------- */
 
+
+/* ------------------------------------------------- */
+/* 
 .player[type="audio"] .media-title {
   font-size: 22px;
   font-weight: 400;
@@ -548,20 +781,30 @@ body {
 
 .player[type="audio"] .placeholder-image {
   display: block;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Audio - Launching                        */
+
+
 /* ------------------------------------------------- */
 
-.player[type="audio"][state="launching"] .logo {
+/* .player[type="audio"][state="launching"] .logo {
   display: block;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Audio - Loading/Paused                   */
-/* ------------------------------------------------- */
 
+
+/* ------------------------------------------------- */
+/* 
 .player[type="audio"][state="loading"] .overlay,
 .player[type="audio"][state="paused"] .overlay {
   display: block;
@@ -626,13 +869,18 @@ body {
   position: absolute;
   left: 384px;
   top: -450px;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Audio - Buffering/Playing                */
+
+
 /* ------------------------------------------------- */
 
-.player[type="audio"][state="buffering"] .overlay,
+/* .player[type="audio"][state="buffering"] .overlay,
 .player[type="audio"][state="playing"] .overlay {
   display: block;
 }
@@ -687,10 +935,15 @@ body {
 .player[type="audio"][state="playing"] .overlay {
   margin-left: 384px;
   margin-bottom: 116px;
-}
+} */
+
 
 /* ------------------------------------------------- */
+
+
 /* Player - Idle                                     */
+
+
 /* ------------------------------------------------- */
 
 .player[state="idle"] .overlay {
@@ -703,10 +956,23 @@ body {
 
 .player[state="idle"] .spinner {
   display: none;
+  color: #fff;
+  content: ' ready to cast'
 }
 
+.player[state="idle"] .ready {
+  display: block;
+  color: #fff;
+  content: ' ready to cast'
+}
+
+
 /* ------------------------------------------------- */
+
+
 /* Player - Done                                     */
+
+
 /* ------------------------------------------------- */
 
 .player[state="done"] .overlay {

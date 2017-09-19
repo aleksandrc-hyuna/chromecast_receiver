@@ -1273,6 +1273,11 @@ sampleplayer.CastPlayer.prototype.updateApplicationState_ = function() {
  * @private
  */
 sampleplayer.CastPlayer.prototype.onReady_ = function() {
+//   var start = Date.now(),
+//   now = start;
+// while (now - start < 5000) {
+//   now = Date.now();
+// }
   this.log_('onReady');
   this.setState_(sampleplayer.State.IDLE, false);
 };

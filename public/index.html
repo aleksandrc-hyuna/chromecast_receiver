@@ -40,16 +40,17 @@ The overlay layer holds:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/player.css" />
   <!--<script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
-  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script> -->
+  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script>-->
   <script type="text/javascript" src="scripts/player.js"></script>
 </head>
 <body style="margin: 0">
-    <div id="player" class="player" state="launching">
+    <div id="player" class="player" state="loading">
         <div class="media">
             <video></video>
         </div>
         <div class="logo"></div>
         <div class="spinner"></div>
+        <div class="ready"><icon></icon>Ready to Cast</div>
         <div class="watermark"></div>
         <div class="gradient"></div>
         <div class="overlay">
@@ -74,8 +75,9 @@ The overlay layer holds:
             </div>
             <div class="controls">
                 <span class="controls-play-pause"></span>
+                <span class="controls-spinner"></span>
                 <span class="controls-cur-time"></span>
-                <span class="controls-total-time"></span>
+                <span class="controls-total-time">78:28</span>
                 <div class="controls-progress">
                     <div class="controls-progress-inner progressBar"></div>
                     <div class="controls-progress-thumb"></div>

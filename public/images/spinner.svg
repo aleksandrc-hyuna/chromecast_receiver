@@ -1,12 +1,19 @@
-<svg width="140" height="141" viewBox="0 0 140 141" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="94" height="94" viewBox="0 0 94 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <title>loading</title>
 <desc>Created using Figma</desc>
-<g id="Canvas" transform="translate(-2314 -3926)">
+<g id="Canvas" transform="translate(-2337 -3949)">
+<g id="text and markup">
+</g>
+<g id="3 Receiver App loading">
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M 1424 3246.46L 3344 3246.46L 3344 4326.46L 1424 4326.46L 1424 3246.46Z" fill="#FFFFFF"/>
+</clipPath>
+<g id="HDTV" clip-path="url(#clip-0)">
 <g id="loading">
 <g id="loading">
-<use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#E91E63"/>
-<use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#FFFFFF"/>
 <use xlink:href="#path0_fill" transform="translate(2337.32 3949.78)" fill="#2B2B2B"/>
+</g>
+</g>
 </g>
 </g>
 </g>
