@@ -39,14 +39,12 @@ The overlay layer holds:
   <title>Casting app name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/player.css" />
-  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
-  <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/mediaplayer/1.0.0/media_player.js"></script>
   <script type="text/javascript" src="scripts/player.js"></script>
 </head>
 <body style="margin: 0">
-    <div id="player" class="player">
+    <div id="player" class="player" state="paused">
         <div class="media">
-            <video></video>
+            <video autoplay muted src="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4"></video>
         </div>
         <div class="logo"></div>
         <div class="spinner"></div>
@@ -57,8 +55,8 @@ The overlay layer holds:
             <div class="media-info">
                 <div class="media-artwork"></div>
                 <div class="media-text">
-                    <div class="media-title"></div>
-                    <div class="media-subtitle"></div>
+                    <div class="media-title">Dawn</div>
+                    <div class="media-subtitle">Drama | 2015 | PG</div>
                 </div>
             </div>
             <div class="preview-mode-info">

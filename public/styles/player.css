@@ -63,6 +63,7 @@
 
 body {
   background-color: #000;
+  width: 1000px;
 }
 
 .player {
@@ -164,10 +165,11 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   align-self: flex-end;
-  height: 143px;
+  height: 280px;
   margin-right: 32px;
   min-width: 96px;
-  max-width: 266px;
+  max-width: 200px;
+  margin-left: 100px;
   width: 100%;
 }
 
@@ -177,19 +179,19 @@ body {
 }
 
 .player .media-info .media-title {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 44px;
+  color: #fff;
+  font-size: 78px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 80%;
+  width: 76%;
 }
 
 .player .media-info .media-subtitle {
-  color: rgba(203, 203, 203, 0.8);
-  font-size: 22px;
+  color: #424242;
+  font-size: 36px;
   overflow: hidden;
-  width: 80%;
+  width: 76%;
 }
 
 .player .media-info .media-subtitle span:not(:first-child):before {
@@ -212,16 +214,16 @@ body {
   background-size: cover;
   border: 0;
   float: left;
-  height: 36px;
-  margin-left: -4px;
-  margin-top: -3px;
-  width: 32px;
+  height: 22px;
+  margin-left: 6px;
+  margin-top: 1px;
+  width: 19px;
 }
 
 .player .overlay {
   position: absolute;
   left: 64px;
-  bottom: 64px;
+  bottom: 48px;
   right: 64px;
   display: none;
   top: auto;
@@ -229,10 +231,11 @@ body {
 
 .player .watermark {
   position: absolute;
+  z-index: 5;
   top: 64px;
-  left: 64px;
-  bottom: 64px;
-  right: 64px;
+  left: 164px;
+  bottom: 74px;
+  right: 164px;
   display: none;
   background-position: bottom right;
   background-repeat: no-repeat;
@@ -242,12 +245,11 @@ body {
 
 .player .gradient {
   display: none;
-  opacity: 0.9;
-  background: linear-gradient( to top, rgba(0, 0, 0, 1.0), rgba(0, 0, 0, 0.0) 72%, rgba(0, 0, 0, 0.0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.9) 13%, rgba(0, 0, 0, 0.7) 27%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .player .progressBar {
-  background-color: rgb(250, 178, 49);
+  background-color: #E91E63;
 }
 
 .player .controls-progress {
@@ -426,6 +428,7 @@ body {
   /* -webkit-animation: loading 2s infinite linear; */
 }
 
+
 /* ------------------------------------------------- */
 
 
@@ -505,6 +508,123 @@ body {
 /* ------------------------------------------------- */
 
 
+/* Player - Buffering                        */
+
+
+/* ------------------------------------------------- */
+
+.player[state="buffering"] .overlay,
+.player[state="buffering"] .gradient {
+  display: block;
+  visibility: visible;
+}
+
+.player[state="buffering"] .gradient {
+  opacity: 0.1;
+}
+
+.player[state="buffering"] .media-artwork,
+.player[state="buffering"] .media-info {
+  display: none;
+}
+
+.player[state="buffering"] .controls {
+  display: block;
+}
+
+.player[state="buffering"] .controls-play-pause {
+  background-image: url("../images/buffering.png");
+  -webkit-animation: spin 1s infinite linear;
+}
+
+.player[state="buffering"][live="true"] .controls-cur-time,
+.player[state="buffering"][live="true"] .controls-total-time,
+.player[state="buffering"][live="true"] .controls-progress {
+  display: none !important;
+}
+
+.player[type="video"][state="buffering"] video {
+  display: block;
+}
+
+.player[state="buffering"] .media-info,
+.player[state="buffering"]:not(.seeking) .controls-cur-time,
+.player[state="buffering"]:not(.seeking) .controls-total-time,
+.player[state="buffering"]:not(.seeking) .controls-progress {
+  display: none;
+}
+
+.player[state="buffering"][preview-mode="true"] .preview-mode-info {
+  display: flex;
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Player - Paused                           */
+
+
+/* ------------------------------------------------- */
+
+.player[state="paused"] .overlay,
+.player[state="paused"] .gradient,
+.player[state="paused"] .watermark {
+  display: block;
+  visibility: visible;
+}
+
+.player[state="paused"] .controls-play-pause {
+  background-image: url("../images/paused.svg");
+}
+
+.player[state="paused"] .controls,
+.player[state="paused"] .watermark,
+.player[state="paused"]:not(.seeking) .controls-cur-time,
+.player[state="paused"]:not(.seeking) .controls-total-time,
+.player[state="paused"]:not(.seeking) .controls-progress {
+  display: block;
+}
+
+.player[state="paused"][live="true"] .controls-cur-time,
+.player[state="paused"][live="true"] .controls-total-time .player[state="paused"][live="true"] .controls-progress {
+  display: none !important;
+}
+
+.player[state="paused"] .controls-spinner,
+.player[state="paused"] .spinner {
+  display: none;
+}
+
+.player[state="paused"] video {
+  display: block;
+}
+
+.player[state="paused"]:not(.seeking) .controls-cur-time,
+.player[state="paused"]:not(.seeking) .controls-total-time,
+.player[state="paused"]:not(.seeking) .controls-progress {
+  opacity: 1;
+  -webkit-transition: opacity 1s linear 5s;
+}
+
+.player[state="paused"] .media-info {
+  opacity: 0;
+  -webkit-transition: opacity 1s linear 5s;
+}
+
+.player[state="paused"][preview-mode="true"] .media-info {
+  opacity: 1;
+}
+
+.player[state="paused"] .gradient {
+  opacity: 1;
+  -webkit-transition: opacity 1s linear 5s;
+}
+
+
+/* ------------------------------------------------- */
+
+
 /* Player - Video                                    */
 
 
@@ -518,6 +638,7 @@ body {
 
 
 /* ------------------------------------------------- */
+
 
 /* .player[type="video"][state="launching"] .overlay {
   display: block;
@@ -546,6 +667,7 @@ body {
 
 /* ------------------------------------------------- */
 
+
 /* .player[type="video"][state="loading"] .overlay,
 .player[type="video"][state="loading"] .controls,
 .player[type="video"][state="loading"] .watermark {
@@ -568,124 +690,11 @@ body {
 /* ------------------------------------------------- */
 
 
-/* Player - Video - Buffering                        */
-
-
-/* ------------------------------------------------- */
-
-.player[type="video"][state="buffering"] .overlay,
-.player[type="video"][state="buffering"] .gradient {
-  display: block;
-  visibility: visible;
-}
-
-.player[type="video"][state="buffering"] .gradient {
-  opacity: 0.1;
-}
-
-.player[type="video"][state="buffering"] .media-artwork,
-.player[type="video"][state="buffering"] .media-info {
-  display: none;
-}
-
-.player[type="video"][state="buffering"] .controls {
-  display: block;
-}
-
-.player[type="video"][state="buffering"] .controls-play-pause {
-  background-image: url("../images/buffering.png");
-  -webkit-animation: spin 1s infinite linear;
-}
-
-.player[type="video"][state="buffering"][live="true"] .controls-cur-time,
-.player[type="video"][state="buffering"][live="true"] .controls-total-time,
-.player[type="video"][state="buffering"][live="true"] .controls-progress {
-  display: none !important;
-}
-
-.player[type="video"][state="buffering"] video {
-  display: block;
-}
-
-.player[type="video"][state="buffering"] .media-info,
-.player[type="video"][state="buffering"]:not(.seeking) .controls-cur-time,
-.player[type="video"][state="buffering"]:not(.seeking) .controls-total-time,
-.player[type="video"][state="buffering"]:not(.seeking) .controls-progress {
-  display: none;
-}
-
-.player[type="video"][state="buffering"][preview-mode="true"] .preview-mode-info {
-  display: flex;
-}
-
-
-/* ------------------------------------------------- */
-
-
-/* Player - Video - Paused                           */
-
-
-/* ------------------------------------------------- */
-
-.player[type="video"][state="paused"] .overlay,
-.player[type="video"][state="paused"] .gradient,
-.player[type="video"][state="paused"] .watermark {
-  display: block;
-  visibility: visible;
-}
-
-.player[type="video"][state="paused"] .controls-play-pause {
-  background-image: url("../images/paused.png");
-}
-
-.player[type="video"][state="paused"] .controls,
-.player[type="video"][state="paused"] .watermark,
-.player[type="video"][state="paused"]:not(.seeking) .controls-cur-time,
-.player[type="video"][state="paused"]:not(.seeking) .controls-total-time,
-.player[type="video"][state="paused"]:not(.seeking) .controls-progress {
-  display: block;
-}
-
-.player[type="video"][state="paused"][live="true"] .controls-cur-time,
-.player[type="video"][state="paused"][live="true"] .controls-total-time,
-.player[type="video"][state="paused"][live="true"] .controls-progress {
-  display: none !important;
-}
-
-.player[type="video"][state="paused"] video {
-  display: block;
-}
-
-.player[type="video"][state="paused"]:not(.seeking) .controls-cur-time,
-.player[type="video"][state="paused"]:not(.seeking) .controls-total-time,
-.player[type="video"][state="paused"]:not(.seeking) .controls-progress {
-  opacity: 1;
-  -webkit-transition: opacity 1s linear 5s;
-}
-
-.player[type="video"][state="paused"] .media-info {
-  opacity: 0;
-  -webkit-transition: opacity 1s linear 5s;
-}
-
-.player[type="video"][state="paused"][preview-mode="true"] .media-info {
-  opacity: 1;
-}
-
-.player[type="video"][state="paused"] .gradient {
-  opacity: 0.1;
-  -webkit-transition: opacity 1s linear 5s;
-}
-
-
-/* ------------------------------------------------- */
-
-
 /* Player - Video - Playing                          */
 
 
 /* ------------------------------------------------- */
-/* 
+
 .player[type="video"][state="playing"] .overlay,
 .player[type="video"][state="playing"] .gradient,
 .player[type="video"][state="playing"] .watermark {
@@ -747,7 +756,53 @@ body {
 
 .player[type="video"][state="playing"][preview-mode="true"].seeking .preview-mode-info {
   display: flex;
-} */
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Player - Idle                                     */
+
+
+/* ------------------------------------------------- */
+
+.player[state="idle"] .overlay {
+  display: none;
+}
+
+.player[state="idle"] .logo {
+  display: block;
+}
+
+.player[state="idle"] .spinner {
+  display: none;
+  color: #fff;
+  content: ' ready to cast'
+}
+
+.player[state="idle"] .ready {
+  display: block;
+  color: #fff;
+  content: ' ready to cast'
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* Player - Done                                     */
+
+
+/* ------------------------------------------------- */
+
+.player[state="done"] .overlay {
+  display: none;
+}
+
+.player[state="done"] {
+  background-image: url('../images/done.png');
+}
 
 
 /* ------------------------------------------------- */
@@ -757,6 +812,8 @@ body {
 
 
 /* ------------------------------------------------- */
+
+
 /* 
 .player[type="audio"] .media-title {
   font-size: 22px;
@@ -792,6 +849,7 @@ body {
 
 /* ------------------------------------------------- */
 
+
 /* .player[type="audio"][state="launching"] .logo {
   display: block;
 } */
@@ -804,6 +862,8 @@ body {
 
 
 /* ------------------------------------------------- */
+
+
 /* 
 .player[type="audio"][state="loading"] .overlay,
 .player[type="audio"][state="paused"] .overlay {
@@ -880,6 +940,7 @@ body {
 
 /* ------------------------------------------------- */
 
+
 /* .player[type="audio"][state="buffering"] .overlay,
 .player[type="audio"][state="playing"] .overlay {
   display: block;
@@ -936,49 +997,3 @@ body {
   margin-left: 384px;
   margin-bottom: 116px;
 } */
-
-
-/* ------------------------------------------------- */
-
-
-/* Player - Idle                                     */
-
-
-/* ------------------------------------------------- */
-
-.player[state="idle"] .overlay {
-  display: none;
-}
-
-.player[state="idle"] .logo {
-  display: block;
-}
-
-.player[state="idle"] .spinner {
-  display: none;
-  color: #fff;
-  content: ' ready to cast'
-}
-
-.player[state="idle"] .ready {
-  display: block;
-  color: #fff;
-  content: ' ready to cast'
-}
-
-
-/* ------------------------------------------------- */
-
-
-/* Player - Done                                     */
-
-
-/* ------------------------------------------------- */
-
-.player[state="done"] .overlay {
-  display: none;
-}
-
-.player[state="done"] {
-  background-image: url('../images/done.png');
-}

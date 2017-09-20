@@ -718,7 +718,7 @@ sampleplayer.CastPlayer.prototype.loadMetadata_ = function(media) {
     sampleplayer.setInnerText_(titleElement, metadata.title);
 
     var subtitleElement = this.element_.querySelector('.media-subtitle');
-    sampleplayer.setInnerText_(subtitleElement, metadata.subtitle);
+    sampleplayer.setInnerText_(subtitleElement, metadata.KEY_CONTROLLER_DIALOG_SUBTITLE);
 
     var artwork = sampleplayer.getMediaImageUrl_(media);
     if (artwork) {

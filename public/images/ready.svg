@@ -1,0 +1,25 @@
+<svg width="34" height="28" viewBox="0 0 34 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>Vector</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-4355 -3989)">
+<rect x="4355" y="3989" width="34" height="28" fill="#393939"/>
+<g id="3 Receiver App loading">
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M 3560 3246.46L 5480 3246.46L 5480 4326.46L 3560 4326.46L 3560 3246.46Z" fill="#FFFFFF"/>
+</clipPath>
+<g id="HDTV" clip-path="url(#clip-0)">
+<path d="M 3560 3246.46L 5480 3246.46L 5480 4326.46L 3560 4326.46L 3560 3246.46Z" fill="#0E1217"/>
+<g id="Ready">
+<g id="cast_connected">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(4355.5 3989.74)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 0 22.5L 0 27L 4.5 27C 4.5 24.51 2.49 22.5 0 22.5ZM 0 16.5L 0 19.5C 4.14 19.5 7.5 22.86 7.5 27L 10.5 27C 10.5 21.195 5.805 16.5 0 16.5ZM 27 6L 6 6L 6 8.445C 11.94 10.365 16.635 15.06 18.555 21L 27 21L 27 6ZM 0 10.5L 0 13.5C 7.455 13.5 13.5 19.545 13.5 27L 16.5 27C 16.5 17.88 9.105 10.5 0 10.5ZM 30 0L 3 0C 1.35 0 0 1.35 0 3L 0 7.5L 3 7.5L 3 3L 30 3L 30 24L 19.5 24L 19.5 27L 30 27C 31.65 27 33 25.65 33 24L 33 3C 33 1.35 31.65 0 30 0Z"/>
+</defs>
+</svg>
