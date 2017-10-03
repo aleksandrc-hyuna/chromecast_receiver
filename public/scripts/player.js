@@ -1190,17 +1190,17 @@ sampleplayer.CastPlayer.prototype.setType_ = function(type, isLiveStream) {
   this.element_.setAttribute('live', isLiveStream.toString());
   var overlay = this.getElementByClass_('.overlay');
   var watermark = this.getElementByClass_('.watermark');
-  clearInterval(this.burnInPreventionIntervalId_);
-  if (type != sampleplayer.Type.AUDIO) {
-    overlay.removeAttribute('style');
-  } else {
-    // if we are in 'audio' mode float metadata around the screen to
-    // prevent screen burn
-    this.burnInPreventionIntervalId_ = setInterval(function() {
-      overlay.style.marginBottom = Math.round(Math.random() * 100) + 'px';
-      overlay.style.marginLeft = Math.round(Math.random() * 600) + 'px';
-    }, sampleplayer.BURN_IN_TIMEOUT);
-  }
+  // clearInterval(this.burnInPreventionIntervalId_);
+  // if (type != sampleplayer.Type.AUDIO) {
+  //   overlay.removeAttribute('style');
+  // } else {
+  //   // if we are in 'audio' mode float metadata around the screen to
+  //   // prevent screen burn
+  //   this.burnInPreventionIntervalId_ = setInterval(function() {
+  //     overlay.style.marginBottom = Math.round(Math.random() * 100) + 'px';
+  //     overlay.styclearInterval(this.burnInPreventionIntervalId_);le.marginLeft = Math.round(Math.random() * 600) + 'px';
+  //   }, sampleplayer.BURN_IN_TIMEOUT);
+  // }
 };
 
 
@@ -1273,11 +1273,6 @@ sampleplayer.CastPlayer.prototype.updateApplicationState_ = function() {
  * @private
  */
 sampleplayer.CastPlayer.prototype.onReady_ = function() {
-//   var start = Date.now(),
-//   now = start;
-// while (now - start < 5000) {
-//   now = Date.now();
-// }
   this.log_('onReady');
   this.setState_(sampleplayer.State.IDLE, false);
 };

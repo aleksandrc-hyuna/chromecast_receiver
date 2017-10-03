@@ -38,18 +38,30 @@ The overlay layer holds:
   <!-- Change the title tag to your app's name to display as the details text on the Cast device picker -->
   <title>Casting app name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/player.css" />
+  <link rel="stylesheet" href="styles/shared.css" />
+  <link rel="stylesheet" href="styles/launching.css" />
+  <link rel="stylesheet" href="styles/idle.css" />
+  <link rel="stylesheet" href="styles/done.css" />
+  <link rel="stylesheet" href="styles/video_shared.css" />
+  <link rel="stylesheet" href="styles/video_loading.css" />
+  <link rel="stylesheet" href="styles/video_buffering.css" />
+  <link rel="stylesheet" href="styles/video_playing.css" />
+  <link rel="stylesheet" href="styles/video_paused.css" />
+  <link rel="stylesheet" href="styles/audio_shared.css" />
+  <link rel="stylesheet" href="styles/audio_loading.css" />
+  <link rel="stylesheet" href="styles/audio_buffering.css" />
+  <link rel="stylesheet" href="styles/audio_playing.css" />
+  <link rel="stylesheet" href="styles/audio_paused.css" />
   <script type="text/javascript" src="scripts/player.js"></script>
 </head>
 <body style="margin: 0">
-    <div id="player" class="player" state="paused">
+    <div id="player" type="video" class="player" state="buffering">
         <div class="media">
             <video autoplay muted src="http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4"></video>
         </div>
         <div class="logo"></div>
         <div class="spinner"></div>
         <div class="ready"><icon></icon>Ready to Cast</div>
-        <div class="watermark"></div>
         <div class="gradient"></div>
         <div class="overlay">
             <div class="media-info">
@@ -72,14 +84,15 @@ The overlay layer holds:
                 </div>
             </div>
             <div class="controls">
-                <span class="controls-play-pause"></span>
-                <span class="controls-spinner"></span>
-                <span class="controls-cur-time"></span>
-                <span class="controls-total-time">78:28</span>
+                <span class="controls-play-pause-loading"></span>
+                <span class="controls-cur-time">00:00</span>
+                <div class="watermark"></div>
+                <span class="controls-total-time">01:58:28</span>
                 <div class="controls-progress">
                     <div class="controls-progress-inner progressBar"></div>
                     <div class="controls-progress-thumb"></div>
                 </div>
+                
             </div>
         </div>
     </div>
