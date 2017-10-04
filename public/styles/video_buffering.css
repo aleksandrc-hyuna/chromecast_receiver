@@ -1,0 +1,28 @@
+
+.player[type="video"][state="buffering"] .overlay,
+.player[type="video"][state="buffering"] .controls-cur-time,
+.player[type="video"][state="buffering"] .watermark,
+.player[type="video"][state="buffering"] .controls-total-time,
+.player[type="video"][state="buffering"] .controls-spinner,
+.player[type="video"][state="buffering"] .controls-progress-thumb,
+.player[type="video"][state="buffering"] .controls {
+  display: block;
+}
+
+.player[type="video"][state="buffering"] .spinner,
+.player[type="video"][state="buffering"] .media-text,
+.player[type="video"][state="buffering"] .media-artwork {
+  display: none;
+}
+
+.player[type="video"][state="buffering"] .controls-play-pause-loading {
+  animation: spin 1s infinite linear;
+  background: url('../images/video-spinner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  float: left;
+  margin-top: -9px;
+}
+

@@ -1,0 +1,20 @@
+
+.player[state="launching"] .overlay {
+  display: block;
+}
+
+.player[state="launching"] .logo {
+  display: block;
+}
+
+.player[state="launching"] .controls,
+.player[state="launching"] .media-info,
+.player[state="launching"] .media-artwork {
+  display: none;
+}
+
+.player[state="launching"] .spinner {
+  animation: spin 1s infinite linear;
+  display: block;
+}
+

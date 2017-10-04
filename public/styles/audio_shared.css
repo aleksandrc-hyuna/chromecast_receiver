@@ -1,0 +1,26 @@
+.player[type="audio"] .media-artwork {
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  align-self: flex-end;
+  height: 340px;
+  width: 340px;
+  bottom: 230px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.player[type="audio"] .media-info .media-title {
+  color: #fff;
+  font-size: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player[type="audio"] .media-info .media-subtitle {
+  color: #fff;
+  font-size: 24px;
+  overflow: hidden;
+}

@@ -1,0 +1,77 @@
+
+
+.player[type="video"][state="playing"]:not(.seeking) .overlay{
+  display: none;
+}
+
+.player[type="video"][state="playing"][live="true"] .controls-cur-time,
+.player[type="video"][state="playing"][live="true"] .controls-total-time,
+.player[type="video"][state="playing"][live="true"] .controls-progress {
+  display: none !important;
+}
+
+.player[type="video"][state="playing"] video {
+  display: block;
+}
+
+.player[type="video"][state="playing"] .spinner {
+  display: none;
+}
+
+
+.player[type="video"][state="playing"][preview-mode="true"] .preview-mode-info {
+  display: flex;
+}
+
+.player[type="video"][state="playing"][preview-mode="true"] .overlay,
+.player[type="video"][state="playing"][preview-mode="true"] .gradient,
+.player[type="video"][state="playing"][preview-mode="true"] .watermark {
+  display: block;
+  visibility: visible;
+}
+
+.player[type="video"][state="playing"][preview-mode="true"] .media-info {
+  display: none;
+}
+
+.player[type="video"][state="playing"][preview-mode="true"].seeking .preview-mode-info {
+  display: flex;
+}
+
+.player[type="video"][state="playing"].seeking .overlay,
+
+.player[type="video"][state="playing"].seeking .controls-cur-time,
+.player[type="video"][state="playing"].seeking .watermark,
+.player[type="video"][state="playing"].seeking .controls-total-time,
+.player[type="video"][state="playing"].seeking .controls-spinner,
+.player[type="video"][state="playing"].seeking .controls,
+.player[type="video"][state="playing"].seeking .controls-progress,
+.player[type="video"][state="playing"].seeking .controls-progress-thumb,
+.player[type="video"][state="playing"].seeking .progressBar,
+.player[type="video"][state="playing"].seeking .overlay {
+  display: block;
+}
+
+.player[type="video"][state="playing"].seeking .gradient {
+  display: block;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.8) 13%, rgba(0, 0, 0, 0.6) 23%, rgba(0, 0, 0, 0) 100%)
+}
+
+
+.player[type="video"][state="playing"].seeking  .spinner,
+.player[type="video"][state="playing"].seeking  .media-text,
+.player[type="video"][state="playing"].seeking  .media-artwork {
+  display: none;
+}
+
+.player[type="video"][state="playing"].seeking  .controls-play-pause-loading {
+  animation: spin 1s infinite linear;
+  background: url('../images/video-spinner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  float: left;
+  margin-top: -9px;
+}
+

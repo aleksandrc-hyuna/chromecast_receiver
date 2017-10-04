@@ -1,0 +1,12 @@
+.player[type="video"] .media-artwork {
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  align-self: flex-end;
+  height: 188px;
+  margin-right: 63px;
+  min-width: 96px;
+  max-width: 134px;
+  margin-left: 56px;
+  width: 100%;
+}

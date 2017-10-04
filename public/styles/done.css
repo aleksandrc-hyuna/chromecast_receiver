@@ -1,0 +1,7 @@
+.player[state="done"] .overlay {
+  display: none;
+}
+
+.player[state="done"] {
+  background-image: url('../images/done.png');
+}

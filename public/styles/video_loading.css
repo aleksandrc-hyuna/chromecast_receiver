@@ -1,0 +1,32 @@
+
+.player[type="video"][state="loading"] .overlay,
+.player[type="video"][state="loading"] .controls-cur-time,
+.player[type="video"][state="loading"] .watermark,
+.player[type="video"][state="loading"] .controls-total-time,
+.player[type="video"][state="loading"] .controls-spinner,
+.player[type="video"][state="loading"] .controls {
+  display: block;
+}
+
+.player[type="video"][state="loading"] .controls-progress-thumb,
+.player[type="video"][state="loading"] .spinner,
+.player[type="video"][state="loading"] .media-text,
+.player[type="video"][state="loading"] .media-artwork {
+  display: none;
+}
+
+.player[type="video"][state="loading"] .controls-play-pause-loading {
+  animation: spin 1s infinite linear;
+  background: url('../images/video-spinner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+  float: left;
+  margin-top: -9px;
+}
+
+.player[type="video"][state="loading"] .controls-progress-inner {
+  width: 0% !important;
+}
+

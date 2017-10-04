@@ -1,0 +1,20 @@
+
+.player[state="idle"] .overlay {
+  display: none;
+}
+
+.player[state="idle"] .logo {
+  display: block;
+}
+
+.player[state="idle"] .spinner {
+  display: none;
+  color: #fff;
+  content: ' ready to cast'
+}
+
+.player[state="idle"] .ready {
+  display: block;
+  color: #fff;
+  content: ' ready to cast'
+}
